@@ -7,7 +7,7 @@ We often need our applications to consume OCI REST services. There are several w
 
 Most of the time, this task is native within the Oracle Cloud, as there are several ways to secure the network and access to existing services. Just a few settings and you're done.
 
-However, there are cases where the application may offer additional security and connectivity requirements. 
+However, there are cases where the application may offer additional security and connectivity requirements.
 
 The use case of this material meets a very common need in the hybrid or multi-cloud scenario (on-premises connected to the Oracle cloud, or Oracle cloud connected to another cloud).
 
@@ -39,13 +39,13 @@ Therefore, the material provides the following solution:
 
 - An OCI API Gateway instance created and exposed to the Internet, see [Creating Your First API Gateway In The Oracle Cloud](https://blogs.oracle.com/developers/post/creating-your-first-api-gateway-in-the-oracle-cloud).
 - Network Connectivity between OCI API Gateway, fn and OCI PaaS Resource
-    - VCN/Subnets
-    - Security List
-    - Nat Gateway/Internet Gateway
-    - Public/Private Networks
+  - VCN/Subnets
+  - Security List
+  - Nat Gateway/Internet Gateway
+  - Public/Private Networks
 - Knowledge with the
   - OCI Functions
-  - OCI REST API to code a call for the OCI Service 
+  - OCI REST API to code a call for the OCI Service
 
 ## Task 1: Configure OAuth2 with IDCS
 
@@ -59,8 +59,8 @@ Go to the OCI API Gateway Instance and copy your hostname. This information will
 
 ### Create a Resource Application
 
-Now we need to create an OAuth2 authorizer for your application. 
-We can do it with the IDCS in Oracle Cloud. 
+Now we need to create an OAuth2 authorizer for your application.
+We can do it with the IDCS in Oracle Cloud.
 
 In the OCI Console, go to "Identity & Security" and select "Federation".
 
@@ -98,7 +98,7 @@ Now, put your OCI API Gateway hostname obtained in the last step
 
 ![img.png](images/resource_1.png)
 
-Click in the Add Scope button and fill with a scope information. 
+Click in the Add Scope button and fill with a scope information.
 
 ![img.png](images/scope.png)
 
@@ -198,7 +198,7 @@ In your browser, put the root IDCS endpoint adding the **/admin/v1/SigningCert/j
 You will receive a jwk string like this example
 
 ![img_2.png](images/jwk.png)
-    
+
 
 We need to work on this JWK string:
 
@@ -210,11 +210,16 @@ We need to work on this JWK string:
 
 The JWK string will not be useful in the **OCI API Gateway** until you make some changes.
 
-Find the segment with **"key_ops":["x","y","z"]** and replace with **"use" : "sig"**
+1. Find the segment with **"key_ops":["x","y","z"]** and replace with **"use" : "sig"**
 
 This will be like this (compare the 2 strings):
 
     {"keys":[{"kty":"RSA","x5t#S256":"gHdIaH54tZt-b09W7_bTALX0DSj5t_Tsy6Wy2P1M_3E","e":"AQAB","x5t":"L_vneVBMiKA-ObXpNt8FZC4sRSY","kid":"SIGNING_KEY","x5c":["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"],"use" : "sig","alg":"RS256","n":"khfJqiO57xMlci4mtvirEGoDfPflsLWQd3G0ZkQQlQK2QcraQRQPkaoP8Lo6KMKA-1mV1TxGfd9QMx9ONmtRL8RIWvt0543Fae6wPfRpaeIcDpknsHAovsTdQ9SwfqwhF7slDg4ciEJ7-gdpCJKMVQcnsiWBDPCoIC1xzB7KbGKrWvaPAmxx1hoM4etjPwBy8h_JvHMfDEF1GkrUtCDiLFPyGBLPv50hmyN6mnTu47lBhzIwzeZ4HqZLgrOdqdA6iSZrBxRzHDi1IWqoj87FYpztkWXnV7VkIN37RwrG6bFKOHGaYEydoF0LmI4pltssTxsdtLyN-Hr8fM402cs7Iw"}]}
+
+2. Remove the {"keys":[ in the begining of the string. Remove the and the ]} in the final of the string:
+
+
+    {"kty":"RSA","x5t#S256":"gHdIaH54tZt-b09W7_bTALX0DSj5t_Tsy6Wy2P1M_3E","e":"AQAB","x5t":"L_vneVBMiKA-ObXpNt8FZC4sRSY","kid":"SIGNING_KEY","x5c":["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"],"use" : "sig","alg":"RS256","n":"khfJqiO57xMlci4mtvirEGoDfPflsLWQd3G0ZkQQlQK2QcraQRQPkaoP8Lo6KMKA-1mV1TxGfd9QMx9ONmtRL8RIWvt0543Fae6wPfRpaeIcDpknsHAovsTdQ9SwfqwhF7slDg4ciEJ7-gdpCJKMVQcnsiWBDPCoIC1xzB7KbGKrWvaPAmxx1hoM4etjPwBy8h_JvHMfDEF1GkrUtCDiLFPyGBLPv50hmyN6mnTu47lBhzIwzeZ4HqZLgrOdqdA6iSZrBxRzHDi1IWqoj87FYpztkWXnV7VkIN37RwrG6bFKOHGaYEydoF0LmI4pltssTxsdtLyN-Hr8fM402cs7Iw"}
 
 Now you can use it.
 
@@ -239,7 +244,7 @@ This code will be prepared to be used with **OCI API Gateway**. In your API Depl
 
 ![img_3.png](images/code_1.png)
 
-We will use the **oracle.ads** library in Python to authorize by **Resource Principal** the access of this (fn) function to the Model Deployment instance. (See the Task 4)  
+We will use the **oracle.ads** library in Python to authorize by **Resource Principal** the access of this (fn) function to the Model Deployment instance. (See the Task 4)
 
     ads.set_auth('resource_principal')
 
@@ -269,7 +274,7 @@ Deploy your function and let's configure it in the **OCI API Gateway**
 
 > **Note**: If you don't know how to develop a function and call it in API Gateway, see [Call a function using API Gateway](https://docs.public.oneportal.content.oci.oraclecloud.com/en-us/iaas/developer-tutorials/tutorials/functions/func-api-gtw/01-summary.htm).
 
-Configure the API Deployment Authentication. 
+Configure the API Deployment Authentication.
 
 You need to select "OAuth 2.0 / OpenID Connect" option and fill this configurations:
 
