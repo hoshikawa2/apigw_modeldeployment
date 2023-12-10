@@ -282,7 +282,7 @@ Configure the API Deployment Authentication.
 
 You need to select "OAuth 2.0 / OpenID Connect" option and fill this configurations:
 
-    Toke Location: Header
+    Token Location: Header
     JWT token header name: Authorization
     Authentication scheme: Bearer
 

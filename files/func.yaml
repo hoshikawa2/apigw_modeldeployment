@@ -1,6 +1,6 @@
 schema_version: 20180708
 name: python-modeldeployment
-version: 0.0.80
+version: 0.0.81
 runtime: python
 build_image: fnproject/python:3.9-dev
 run_image: fnproject/python:3.9
