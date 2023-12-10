@@ -1,12 +1,3 @@
----
-duration: PT1H00M0S
-description: Learn how to use Oracle Cloud API Gateway to Authenticate with OAuth2 and Call an OCI Service with fn and OCI SDK
-level: Advanced
-roles: Devops;Developer
-products: en/cloud/oracle-cloud-infrastructure/oci
-keywords: api-gateway;functions;Oracle Identity Cloud Service
-inject-note: true
----
 
 # Learn how to use Oracle Cloud API Gateway to Authenticate with OAuth2 and Call an OCI Service with fn and OCI SDK
 
