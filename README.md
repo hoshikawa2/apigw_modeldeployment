@@ -206,6 +206,10 @@ We need to work on this JWK string:
     
     Note: This JWK was redacted
 
+>**Note**: If you receive an error message, you need to give access in IDCS
+
+![img.png](./images/idcs_config_access.png)
+
 ### Very Important Change
 
 The JWK string will not be useful in the **OCI API Gateway** until you make some changes.
