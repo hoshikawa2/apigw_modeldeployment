@@ -15,7 +15,7 @@ Let's present the following scenario:
 
 - Application on an on-premises network connected to Oracle Cloud through Fast-Connect/VPN
 - Application needs to consume an OCI Data Science service
-- OCI service does not have an authentication mechanism for Resource Principal
+- OCI service does not have an authentication mechanism that meets the application consumer's possibilities
 - Application needs to authenticate using OAuth2 to be able to access the service securely
 
 Therefore, the material provides the following solution:
