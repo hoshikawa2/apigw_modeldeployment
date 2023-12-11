@@ -31,7 +31,7 @@ Therefore, the material provides the following solution:
 
 - Configure the Oracle IDCS cloud's own Identity Provider to authenticate through OAuth2
 - Configure OCI API Gateway to integrate with IDCS to authenticate via an obtained token
-- Code an fn to call an OCI service that does not allow the use of Resource Principal (in our example, we will use the Data Science Model Deployment service)
+- Code an fn to call an OCI service that allows the use of Resource Principal (in our example, we will use the Data Science Model Deployment service)
 - Create groups and policies to limit access to cloud resources
 - Deliver an Identity Provider that allows you to pass the Client ID and Secret ID and obtain an authentication token
 - Deliver a functional API Gateway REST service that authenticates through the obtained token and provides the result of the Data Science service
